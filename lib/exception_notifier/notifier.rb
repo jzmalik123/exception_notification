@@ -111,6 +111,10 @@ class ExceptionNotifier
         @data      = options[:data] || {}
 
         compose_email
+
+        if @options[:google_chat]
+          GoogleChatNotifier.new(@options[:google_chat]).background_exception_notification(@exception, @data)
+        end
       end
     end
 
