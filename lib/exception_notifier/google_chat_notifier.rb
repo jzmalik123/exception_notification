@@ -35,6 +35,8 @@ class ExceptionNotifier
       message << "\n\n"
       message << "====== Exception In Task #{ @task_name } ======"
       message << "\n\n"
+      message << exception.inspect
+      message << "\n\n"
       message << exception.backtrace.join("\n")
       message << "\n\n"
       unless @user_ids.empty?
